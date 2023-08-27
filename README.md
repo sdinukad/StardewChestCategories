@@ -1,6 +1,7 @@
 # Stardew Chest Organizer
 
-[LIVE version here!](#https://stardew-item-chest-organizer.onrender.com/)
+[Live version available here!](https://stardew-item-chest-organizer.onrender.com/)
+
 
 Drag and drop craftable items that are used in a workbench to different chests 
 for easily planning and organizing.
