@@ -1,0 +1,66 @@
+body {
+    font-family: Arial, sans-serif;
+  }
+  
+  #app {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    padding: 20px;
+  }
+  
+  .category {
+    border-radius: 5px;
+    padding: 10px;
+    width: 200px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  #unassigned {
+    background-color: #f2f2f2;
+  }
+  
+  #seeds {
+    background-color: #64b5f6;
+  }
+  
+  #forage {
+    background-color: #81c784;
+  }
+  
+  #crafting {
+    background-color: #ffb74d;
+  }
+  
+  #minerals {
+    background-color: #90a4ae;
+  }
+  
+  #monster {
+    background-color: #ff8a65;
+  }
+  
+  #special {
+    background-color: #ba68c8;
+  }
+  
+  .connected-sortable {
+    list-style-type: none;
+    padding: 0;
+    min-height: 50px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f7f7f7;
+    margin-top: 10px;
+  }
+  
+  .connected-sortable li {
+    padding: 5px 10px;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin: 5px 0;
+    cursor: pointer;
+  }
+  
