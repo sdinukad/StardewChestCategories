@@ -1,6 +1,7 @@
 # Stardew Chest Organizer
 
-Drag and drop craftable items that are used in a workbench to different chests for easily planning and organizing.
+Drag and drop craftable items that are used in a workbench to different chests 
+for easily planning and organizing.
 
 ## Table of Contents
 
