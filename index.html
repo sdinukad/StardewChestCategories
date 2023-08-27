@@ -8,9 +8,7 @@
   <title>Drag and Drop List</title>
 </head>
 <body>
-    <button id="download-button" class="material-button">Download data as text file</button>
-
-  <div id="app">
+    <div id="app">
     <!-- Categories -->
     <div class="category" id="unassigned">
       <h2>Unassigned</h2>
@@ -47,7 +45,10 @@
       <ul class="sortable-list connected-sortable"></ul>
     </div>
   </div>
-
+  <div>
+    <button id="download-button" class="material-button">Download data as text file</button>
+    <button id="reset-button" class="material-button">Reset Items</button> <!-- Add reset button -->
+  </div>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   <script src="script.js"></script>

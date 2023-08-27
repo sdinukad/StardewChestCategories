@@ -2,13 +2,13 @@
 
 [Live version available here!](https://stardew-item-chest-organizer.onrender.com/)
 
-
 Drag and drop craftable items that are used in a workbench to different chests 
-for easily planning and organizing.
+for easy planning and organizing.
 
 ## Table of Contents
 
 - [Features](#features)
+- [Changelog](#changelog)
 - [Usage](#usage)
 - [Installation](#installation)
 - [Technologies Used](#technologies-used)
@@ -18,6 +18,20 @@ for easily planning and organizing.
 - Drag and drop items between categories
 - Save and load categorized data locally
 - Download categorized data as a text file
+
+## Changelog
+
+### Updates
+
+- Fixed widths of columns to fit the screen
+- Reduced text size for improved readability
+- Added grab and grabbing cursors for better interaction
+- Created a reset items button for moving items back to "Unassigned"
+
+### To Do
+
+- Implement the reset items button functionality
+- Display item count x/36 on top to indicate capacity
 
 ## Usage
 

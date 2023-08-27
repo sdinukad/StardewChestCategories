@@ -1,5 +1,6 @@
 body {
     font-family: "Roboto", sans-serif;
+    font-size: small;
 }
 
 .material-button {
@@ -11,9 +12,6 @@ body {
     border-radius: 4px;
     padding: 8px 16px;
     cursor: pointer;
-    position: absolute;
-    top: 20px;
-    right: 20px;
     transition: background-color 0.3s;
 }
 
@@ -32,8 +30,10 @@ body {
 .category {
     border-radius: 5px;
     padding: 10px;
-    width: 200px;
+    width: 10.5vw;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    height: 80vh;
+    overflow: auto;
 }
 
 .category .sortable-list {
@@ -68,6 +68,7 @@ body {
     background-color: #ba68c8;
 }
 
+  
 .connected-sortable {
     list-style-type: none;
     padding: 0;
@@ -75,8 +76,7 @@ body {
     border: 1px solid #ddd;
     border-radius: 5px;
     background-color: #f7f7f7;
-    margin-top: 10px;
-    height: 70vh;
+    margin-top: 5px;
 }
 
 .connected-sortable li {
@@ -84,6 +84,10 @@ body {
     background-color: white;
     border: 1px solid #ddd;
     border-radius: 5px;
-    margin: 5px 0;
-    cursor: pointer;
+    margin: 2px 0;
+    cursor: grab;
+}
+
+.connected-sortable li:active {
+    cursor:grabbing;
 }
