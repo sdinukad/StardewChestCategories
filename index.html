@@ -4,9 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,500&display=swap">
   <title>Drag and Drop List</title>
 </head>
 <body>
+    <button id="download-button" class="material-button">Download data as text file</button>
+
   <div id="app">
     <!-- Categories -->
     <div class="category" id="unassigned">
@@ -25,7 +28,7 @@
     </div>
 
     <div class="category" id="crafting">
-      <h2>Crafting & Resources Chest</h2>
+      <h2>Crafting & Resources</h2>
       <ul class="sortable-list connected-sortable"></ul>
     </div>
 
@@ -44,8 +47,6 @@
       <ul class="sortable-list connected-sortable"></ul>
     </div>
   </div>
-
-  <button id="download-button">Download Data</button>
 
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>

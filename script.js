@@ -1,5 +1,4 @@
-$(document).ready(function() {
-    const items = [
+const items = [
     "Acorn",
     "Ancient Seed",
     "Aquamarine",
@@ -81,14 +80,26 @@ $(document).ready(function() {
     "Winter Root",
     "Wood"
   ];
+
   
-    const unassignedList = $("#unassigned .sortable-list");
-    items.forEach(item => {
-      unassignedList.append(`<li>${item}</li>`);
-    });
+  const unassignedList = $("#unassigned .sortable-list");
+  
+  // Load data from local storage if available
+  window.onload = function() {
+    loadListDataFromLocalStorage();
+    // If local storage data is not available, populate with initial items
+    if (unassignedList.children().length === 0) {
+      items.forEach(item => {
+        unassignedList.append(`<li>${item}</li>`);
+      });
+    }
   
     $(".sortable-list").sortable({
-      connectWith: ".connected-sortable"
+      connectWith: ".connected-sortable",
+      stop: function() {
+        // Save data to local storage when a drag-and-drop operation is done
+        saveListDataToLocalStorage();
+      }
     });
   
     $("#download-button").click(function() {
@@ -111,5 +122,38 @@ $(document).ready(function() {
       a.download = "categorized_items.txt";
       a.click();
     });
-  });
+  };
+  
+  function saveListDataToLocalStorage() {
+    const categories = $(".category");
+    let data = {};
+  
+    categories.each(function(index, category) {
+      const categoryId = $(category).attr("id");
+      const items = $("#" + categoryId + " .sortable-list li").map(function() {
+        return $(this).text();
+      }).get();
+  
+      data[categoryId] = items;
+    });
+  
+    localStorage.setItem("categoryData", JSON.stringify(data));
+  }
+  
+  function loadListDataFromLocalStorage() {
+    const storedData = localStorage.getItem("categoryData");
+  
+    if (storedData) {
+      const data = JSON.parse(storedData);
+      Object.keys(data).forEach(categoryId => {
+        const items = data[categoryId];
+        const categoryList = $("#" + categoryId + " .sortable-list");
+        categoryList.empty();
+        items.forEach(item => {
+          categoryList.append(`<li>${item}</li>`);
+        });
+      });
+    }
+  }
+  
   
