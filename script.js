@@ -96,7 +96,7 @@ const items = [
   $(document).ready(function() {
     loadListDataFromLocalStorage();
   
-    if (unassignedList.children().length === 0) {
+    if (unassignedList.children().length === 0) {~
       items.forEach(item => {
         unassignedList.append(`<li>${item}</li>`);
       });
