@@ -80,14 +80,22 @@ const items = [
     "Winter Root",
     "Wood"
   ];
-
-  
   const unassignedList = $("#unassigned .sortable-list");
   
-  // Load data from local storage if available
-  window.onload = function() {
+  const categoryLimits = {
+    unassigned: 80, // Limit for Unassigned category
+    seeds: 3,
+    forage: 36,
+    crafting: 36,
+    minerals: 36,
+    monster: 36,
+    special: 36,
+    // Define limits for other categories
+  };
+  
+  $(document).ready(function() {
     loadListDataFromLocalStorage();
-    // If local storage data is not available, populate with initial items
+  
     if (unassignedList.children().length === 0) {
       items.forEach(item => {
         unassignedList.append(`<li>${item}</li>`);
@@ -96,11 +104,23 @@ const items = [
   
     $(".sortable-list").sortable({
       connectWith: ".connected-sortable",
-      stop: function() {
-        // Save data to local storage when a drag-and-drop operation is done
+      receive: function(event, ui) {
+        const targetCategoryId = $(this).parent().attr("id");
+        const originalList = ui.sender;
+        const originalCategoryId = originalList.parent().attr("id");
+  
+        if (currentItemCount(targetCategoryId) > categoryLimits[targetCategoryId]) {
+          originalList.sortable("cancel");
+          return; // Don't proceed if the target list is full
+        }
+  
+        enforceItemLimit(targetCategoryId); // Enforce limit for the target category
+        updateCounters(originalCategoryId); // Update the counter for the original category
+        updateCounters(targetCategoryId); // Update the counter for the target category
         saveListDataToLocalStorage();
       }
     });
+    
   
     $("#download-button").click(function() {
       const categories = $(".category");
@@ -122,8 +142,49 @@ const items = [
       a.download = "categorized_items.txt";
       a.click();
     });
-  };
   
+    const resetButton = document.getElementById("reset-button");
+    resetButton.addEventListener("click", function() {
+      const allItems = [];
+      $(".category .sortable-list li").each(function() {
+        allItems.push($(this).text());
+      });
+  
+      $(".category .sortable-list").empty();
+  
+      unassignedList.empty();
+      allItems.forEach(item => {
+        unassignedList.append(`<li>${item}</li>`);
+      });
+  
+      $(".category").each(function(index, category) {
+        const categoryId = $(category).attr("id");
+        const itemCount = $("#" + categoryId + " .sortable-list li").length;
+        $("#" + categoryId + " .counter").text(`(${itemCount}/${categoryLimits[categoryId]})`);
+      });
+  
+      localStorage.removeItem("categoryData");
+    });
+  });
+  
+  function enforceItemLimit(categoryId) {
+    const currentList = $("#" + categoryId + " .sortable-list");
+    const currentItemCount = currentList.children().length;
+  
+    if (currentItemCount > categoryLimits[categoryId]) {
+      const exceededItems = currentList.children().slice(categoryLimits[categoryId]);
+      unassignedList.append(exceededItems);
+      currentList.children().slice(categoryLimits[categoryId]).remove();
+    }
+  
+    $(".sortable-list").sortable("refresh"); // Refresh the sortable lists
+  }
+  
+  function currentItemCount(categoryId) {
+    return $("#" + categoryId + " .sortable-list li").length;
+  }
+  
+
   function saveListDataToLocalStorage() {
     const categories = $(".category");
     let data = {};
@@ -152,8 +213,14 @@ const items = [
         items.forEach(item => {
           categoryList.append(`<li>${item}</li>`);
         });
+  
+        const itemCount = items.length;
+        $("#" + categoryId + " .counter").text(`(${itemCount}/${categoryLimits[categoryId]})`);
       });
     }
   }
   
-  
+  function updateCounters(categoryId) {
+    const currentItemCount = $("#" + categoryId + " .sortable-list li").length;
+    $("#" + categoryId + " .counter").text(`(${currentItemCount}/${categoryLimits[categoryId]})`);
+  }
