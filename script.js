@@ -120,21 +120,35 @@ const items = [
         saveListDataToLocalStorage();
       }
     });
-    
-    $(".sortable-list").on("touchstart", function(event) {
-      // Prevent the default action of the touchstart event
-      event.preventDefault();
-    
-      // Get the element that was touched
-      const element = event.target;
-    
-      // Start the drag operation
-      $(element).draggable({
-        axis: "y",
-        connectWith: ".connected-sortable"
+
+    $("#paste-button").click(function() {
+    const pasteData = $("#paste-textarea").val();
+    const lines = pasteData.split("\n\n");
+
+    lines.forEach(line => {
+      const [category, items] = line.split(": ");
+      const categoryElement = $("#" + category);
+      if (categoryElement.length === 0) {
+        return; // Skip if category not found
+      }
+
+      const itemList = items.split(", ");
+      categoryElement.find(".sortable-list").empty();
+      itemList.forEach(item => {
+        categoryElement.find(".sortable-list").append(`<li>${item}</li>`);
       });
     });
-    
+
+    $(".category").each(function(index, category) {
+      const categoryId = $(category).attr("id");
+      const itemCount = $("#" + categoryId + " .sortable-list li").length;
+      $("#" + categoryId + " .counter").text(`(${itemCount}/${categoryLimits[categoryId]})`);
+    });
+
+    saveListDataToLocalStorage();
+    $(".popup").fadeOut(); // Close the popup after arranging
+  });
+
     $("#download-button").click(function() {
       const categories = $(".category");
       let data = "";
@@ -155,7 +169,7 @@ const items = [
       a.download = "categorized_items.txt";
       a.click();
     });
-  
+    
     const resetButton = document.getElementById("reset-button");
     resetButton.addEventListener("click", function() {
       const allItems = [];
