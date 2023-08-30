@@ -27,7 +27,7 @@ const items = [
     "Dwarf Gadget",
     "Earth Crystal",
     "Fairy Rose",
-    "Fiber",
+    "Fibre",
     "Fire Quartz",
     "Fish (Any)",
     "Frozen Tear",
@@ -112,7 +112,7 @@ const items = [
           return $(this).text();
         }).get();
   
-        data += categoryId + ": " + items.join(", ") + "\n";
+        data += categoryId + ": " + items.join(", ") + "\n\n";
       });
   
       const blob = new Blob([data], { type: "text/plain" });
