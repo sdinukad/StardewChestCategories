@@ -8,6 +8,10 @@
   <title>Drag and Drop List</title>
 </head>
 <body>
+  <div>
+    <button id="download-button" class="material-button">Download data as text file</button>
+    <button id="reset-button" class="material-button">Reset Items</button> <!-- Add reset button -->
+  </div>
     <div id="app">
     <!-- Categories -->
     <div class="category" id="unassigned">
@@ -26,7 +30,7 @@
     </div>
 
     <div class="category" id="crafting">
-      <h2>Crafting & Resources</h2>
+      <h2>Crafting Resources</h2>
       <ul class="sortable-list connected-sortable"></ul>
     </div>
 
@@ -44,10 +48,6 @@
       <h2>Special Items Chest</h2>
       <ul class="sortable-list connected-sortable"></ul>
     </div>
-  </div>
-  <div>
-    <button id="download-button" class="material-button">Download data as text file</button>
-    <button id="reset-button" class="material-button">Reset Items</button> <!-- Add reset button -->
   </div>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
