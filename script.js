@@ -121,7 +121,20 @@ const items = [
       }
     });
     
-  
+    $(".sortable-list").on("touchstart", function(event) {
+      // Prevent the default action of the touchstart event
+      event.preventDefault();
+    
+      // Get the element that was touched
+      const element = event.target;
+    
+      // Start the drag operation
+      $(element).draggable({
+        axis: "y",
+        connectWith: ".connected-sortable"
+      });
+    });
+    
     $("#download-button").click(function() {
       const categories = $(".category");
       let data = "";
