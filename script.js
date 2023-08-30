@@ -84,7 +84,7 @@ const items = [
   
   const categoryLimits = {
     unassigned: 80, // Limit for Unassigned category
-    seeds: 3,
+    seeds: 36,
     forage: 36,
     crafting: 36,
     minerals: 36,
