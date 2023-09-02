@@ -1,3 +1,34 @@
+// Get DOM elements
+const popupButton = document.getElementById("popup-button");
+const popup = document.getElementById("popup");
+const submitButton = document.getElementById("paste-button");
+
+// Show the popup when the "Open Popup" button is clicked
+popupButton.addEventListener("click", () => {
+    popup.style.display = "block";
+});
+
+//Close the popup when the "Submit" button is clicked
+submitButton.addEventListener("click", () => {
+    popup.style.display = "none";
+});
+
+// Update the background image size on window resize for responsiveness
+window.addEventListener("resize", () => {
+    updateBackgroundImageSize();
+});
+
+// Initial call to set the background image size
+updateBackgroundImageSize();
+
+function updateBackgroundImageSize() {
+    const topSection = document.querySelector(".top-section");
+    const backgroundImage = document.querySelector(".background-image");
+
+    // Set the background image size to cover the top section
+    backgroundImage.style.width = topSection.offsetWidth + "px";
+    backgroundImage.style.height = topSection.offsetHeight + "px";
+}
 const items = [
     "Acorn",
     "Ancient Seed",
@@ -80,6 +111,7 @@ const items = [
     "Winter Root",
     "Wood"
   ];
+
   const unassignedList = $("#unassigned .sortable-list");
   
   const categoryLimits = {
@@ -137,7 +169,13 @@ const items = [
       itemList.forEach(item => {
         categoryElement.find(".sortable-list").append(`<li>${item}</li>`);
       });
+      $(".category").each(function(index, category) {
+        const categoryId = $(category).attr("id");
+        const itemCount = $("#" + categoryId + " .sortable-list li").length;
+        $("#" + categoryId + " .counter").text(`(${itemCount}/${categoryLimits[categoryId]})`);
+      });
       saveListDataToLocalStorage();
+      //popup.style.display = "none";
     });
 
     $(".category").each(function(index, category) {
@@ -147,7 +185,6 @@ const items = [
     });
 
     saveListDataToLocalStorage();
-    $(".popup").fadeOut(); // Close the popup after arranging
   });
 
     $("#download-button").click(function() {

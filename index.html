@@ -1,79 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato">
-  <title>Drag and Drop List</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+    <title>Stardew Valley - Chest Organizer</title>
 </head>
 <body>
-  <header>
-    <div class="header-content">
-        <img src="https://media.forgecdn.net/game-covers/669_8ab534f1-cab5-4d0e-baa9-37d20f9ba8b5.webp" alt="Banner Image">
-        <div id="buttonbar">
-            <button id="download-button" class="material-button">Download data as text file</button>
-            <button id="reset-button" class="material-button">Reset Items</button>
+    <header class="top-section">
+        <div class="background-image"></div>
+        <div class="header-content">
+            <div class="buttons">
+                <button id="download-button" class="material-button">Download data</button>
+                <button id="reset-button" class="material-button">Reset Items</button>
+                <button id="popup-button" class="popup-button">Paste Items</button>
+            </div>
+            <div class="popup" id="popup">
+                <div class="popup-content">
+                    <textarea id="paste-textarea" placeholder="Paste your downloaded data here"></textarea>
+                    <br><button id="paste-button" class="paste-button">Submit</button>
+                </div>
+            </div>
         </div>
-        <div class="popup">
-          <div class="popup-content">
-            <details>
-              <summary style="color: white">Paste and Arrange Items</summary>
-              <textarea id="paste-textarea" placeholder="Paste your downloaded data here"></textarea>
-              
-              <button id="paste-button">Paste & Arrange</button>
-          </details>
-          </div>
-        </div>
-    </div>
-</header>
-
-
- <!-- <div id="buttonbar">
-    <button id="download-button" class="material-button">Download data as text file</button>
-    <button id="reset-button" class="material-button">Reset Items</button> --><!-- Add reset button -->
-   <!--</div>-->
+    </header>
     <div id="app">
-    <!-- Categories -->
-    <div class="category" id="unassigned">
-      <h2>Unassigned<br><span class="counter"></span></h2>
-      <ul class="sortable-list connected-sortable"></ul>
-    </div>
-
-    <div class="category" id="seeds">
-      <h2>Seeds Chest<br><span class="counter"></span></h2>
-      <ul class="sortable-list connected-sortable"></ul>
-    </div>
-
-    <div class="category" id="forage">
-      <h2>Forage Chest<br><span class="counter"></span></h2>
-      <ul class="sortable-list connected-sortable"></ul>
-    </div>
-
-    <div class="category" id="crafting">
-      <h2>Crafting Resources<br><span class="counter"></span></h2>
-      <ul class="sortable-list connected-sortable"></ul>
-    </div>
-
-    <div class="category" id="minerals">
-      <h2>Minerals Chest<br><span class="counter"></span></h2>
-      <ul class="sortable-list connected-sortable"></ul>
-    </div>
-
-    <div class="category" id="monster">
-      <h2>Monster & Fish Chest<br><span class="counter"></span></h2>
-      <ul class="sortable-list connected-sortable"></ul>
-    </div>
-
-    <div class="category" id="special">
-      <h2>Special Items Chest<br><span class="counter"></span></h2>
-      <ul class="sortable-list connected-sortable"></ul>
-    </div>
-  </div>
-  
-  
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-  <script src="script.js"></script>
-</body>
+        <!-- Categories -->
+        <div class="category" id="unassigned">
+          <h2>Unassigned<br><span class="counter"></span></h2>
+          <ul class="sortable-list connected-sortable"></ul>
+        </div>
+    
+        <div class="category" id="seeds">
+          <h2>Seeds Chest<br><span class="counter"></span></h2>
+          <ul class="sortable-list connected-sortable"></ul>
+        </div>
+    
+        <div class="category" id="forage">
+          <h2>Forage Chest<br><span class="counter"></span></h2>
+          <ul class="sortable-list connected-sortable"></ul>
+        </div>
+    
+        <div class="category" id="crafting">
+          <h2>Crafting Resources<br><span class="counter"></span></h2>
+          <ul class="sortable-list connected-sortable"></ul>
+        </div>
+    
+        <div class="category" id="minerals">
+          <h2>Minerals Chest<br><span class="counter"></span></h2>
+          <ul class="sortable-list connected-sortable"></ul>
+        </div>
+    
+        <div class="category" id="monster">
+          <h2>Monster & Fish Chest<br><span class="counter"></span></h2>
+          <ul class="sortable-list connected-sortable"></ul>
+        </div>
+    
+        <div class="category" id="special">
+          <h2>Special Items Chest<br><span class="counter"></span></h2>
+          <ul class="sortable-list connected-sortable"></ul>
+        </div>
+      </div>
+      
+      
+      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+      <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+      <script src="script.js"></script>
+    </body>
 </html>

@@ -1,46 +1,133 @@
-body {
-  font-family: "Lato";
-  color: #2d3034;
-  /* Set a semi-transparent background color */
-  background-color: rgba(32, 33, 35, 0.7); /* Adjust the RGB values and alpha channel as needed */
-}
-
-header img {
-  max-width: 100%;
-  height: auto;
-}
-
-/* Style for the red button */
-.material-button {
-  font-family: "Lato";
+/* Reset some default styles */
+html, body {
+  margin: 0;
+  padding: 0;
+  user-select: none;
+  font-family: 'Lato', sans-serif;
   font-size: 16px;
+  font-style: normal;
   font-weight: 600;
-  line-height: 24px;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.64px;
+  background-color: #f5f5dc;
+}
+
+/* Top section styles */
+.top-section {
+  position: relative;
+  overflow: hidden;
+  background-image: url('https://media.forgecdn.net/game-covers/669_8ab534f1-cab5-4d0e-baa9-37d20f9ba8b5.webp');
+  background-color: #f2f2f2; /* Fallback background color */
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.background-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.header-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
   text-align: center;
-  background-color: #D34037; /* Red background color */
-  color: white; /* Text color (white) */
+}
+
+.buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.material-button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
   border: none;
   border-radius: 4px;
-  padding: 8px 16px;
   cursor: pointer;
-  transition: background-color 0.3s;
 }
 
-.material-button:hover {
-  background: #F3513E;
+.popup-button {
+  padding: 10px 20px;
+  background-color: #D34037;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Popup styles (hidden by default) */
+.popup {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 2;
+}
+
+.popup-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  
+}
+
+h2 {
+  margin-bottom: 20px;
+}
+
+h2.counter {
+  font-size: smaller;
+  font-weight: normal;
+  color: #2d3034; /* Your desired text color */
+  /* You can add other styling properties as needed */
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  
+}
+
+.paste-button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
 }
 
 #app {
   display: flex;
-  gap: 2vw;
+  gap: 1vw;
   justify-content: center;
   padding: 1vh;
 }
 
 .category {
-  border-radius: 5px;
-  padding: 10px;
+  border-radius: 3px;
+  padding: 3px;
   width: 100%;
   height: 80vh;
   overflow: auto;
@@ -57,46 +144,47 @@ header img {
 }
 
 #unassigned {
-  background-color: #f2f2f2;
+  background-color: rgba(242, 242, 242, 0.7); /* Transparent gray background color */
 }
 
 #seeds {
-  background-color: #64b5f6;
+  background-color: rgba(100, 181, 246, 0.7); /* Transparent blue background color */
 }
 
 #forage {
-  background-color: #81c784;
+  background-color: rgba(129, 199, 132, 0.7); /* Transparent green background color */
 }
 
 #crafting {
-  background-color: #ffb74d;
+  background-color: rgba(255, 183, 77, 0.7); /* Transparent orange background color */
 }
 
 #minerals {
-  background-color: #90a4ae;
+  background-color: rgba(144, 164, 174, 0.7); /* Transparent gray-blue background color */
 }
 
 #monster {
-  background-color: #ff8a65;
+  background-color: rgba(255, 138, 101, 0.7); /* Transparent red-orange background color */
 }
 
 #special {
-  background-color: #ba68c8;
+  background-color: rgba(186, 104, 200, 0.7); /* Transparent purple background color */
 }
 
+
 .connected-sortable {
-  list-style-type: none;
+  list-style-type:none;
   padding: 0;
   min-height: 60vh;
   max-height: 70vh;
   border: 1px solid #ddd;
   border-radius: 5px;
   background-color: #f7f7f7;
-  margin-top: 5px;
+  margin-top: 2px;
 }
 
 .connected-sortable li {
-  padding: 5px 10px;
+  padding: 1px 1px;
   background-color: white;
   border: 1px solid #ddd;
   border-radius: 5px;
@@ -109,68 +197,60 @@ header img {
   opacity: 50%;
 }
 
-@media (max-width: 768px) {
-  body {
-      font-size: xx-small;
-      display: block;
-  }
-
-  .category {
-      width: 100%;
-      padding: 3px; /* Reduced padding for smaller screens */
-  }
-
-  .connected-sortable {
-      max-height: 20vh;
-  }
-
-  .connected-sortable li {
-      padding: 3px 6px;
-  }
-}
-
 .counter {
   font-size: smaller;
   font-weight: normal;
   color: #2d3034;
 }
 
-body {
-  user-select: none;
-}
-
-#paste-input {
-  width: 100%;
+/* CSS for the paste-textarea */
+#paste-textarea {
+  width: fit-content;
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 4px;
+  resize: vertical; /* Allow vertical resizing */
+  min-height: 100px; /* Set a minimum height */
+  transition: border-color 0.3s, box-shadow 0.3s;
 }
 
-#paste-button {
-  background-color: #007bff;
-  color: #ffffff;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
+#paste-textarea::placeholder {
+  color: #aaa; /* Placeholder text color */
 }
 
-/* Style for the header container */
-.header-content {
-  position: relative;
-}
-
-/* Style for the button container overlay */
-#buttonbar {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+/* Add a subtle box shadow when focused */
+#paste-textarea:focus {
+  border-color: #007bff; /* Border color when focused */
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Box shadow when focused */
 }
 
 @media (max-width: 768px) {
-  .material-button {
-      font-size: xx-small; /* Decrease the font size */
-      padding: 3px 6px; /* Adjust padding for smaller buttons */
+  body {
+      font-size: xx-small;
+      font-weight: 100;
+     
   }
+  #app {
+      display: flex;
+      gap: 1vw;
+      justify-content: center;
+      padding: 1vh;
+    }
+  
+  h2 {
+      margin-bottom: 5px;
+      margin-top: 5px;
+  }
+}
+
+.material-button:hover {
+  background: #0056b3;
+}
+
+.paste-button:hover {
+  background: #0056b3;
+}
+
+.popup-button:hover{
+  background: #a3322b;
 }
