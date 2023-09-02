@@ -1,144 +1,176 @@
 body {
-    font-family: "Inconsolata", sans-serif;
-    color: #2d3034;
-  }
+  font-family: "Lato";
+  color: #2d3034;
+  /* Set a semi-transparent background color */
+  background-color: rgba(32, 33, 35, 0.7); /* Adjust the RGB values and alpha channel as needed */
+}
 
-  .material-button {
-    font-family: "Inconsolata", sans-serif;
-    font-weight: 100;
-    font-size: 1rem;
-    background-color: #808080;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    padding: 8px 16px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
-  .material-button:hover {
-    background-color: #1565C0;
-  }
-  
-  #app {
-    display: flex;
-    gap: 2vw;
-    justify-content: center;
-    padding: 1vh;
-  }
-  
-  .category {
-    border-radius: 5px;
-    padding: 10px;
-    width: 100%;
-    height: 80vh;
-    overflow:auto;
-    background-color: #f2f2f2;
-    text-align: center;
-  }
-  
-  .category .sortable-list {
-    overflow: auto;
-  }
-  
-  .category:nth-child(2n) {
-    background-color: #f7f7f7;
-  }
-  
-  #unassigned {
-    background-color: #f2f2f2;
-  }
-  
-  #seeds {
-    background-color: #64b5f6;
-  }
-  
-  #forage {
-    background-color: #81c784;
-  }
-  
-  #crafting {
-    background-color: #ffb74d;
-  }
-  
-  #minerals {
-    background-color: #90a4ae;
-  }
-  
-  #monster {
-    background-color: #ff8a65;
-  }
-  
-  #special {
-    background-color: #ba68c8;
-  }
-  
-  .connected-sortable {
-    list-style-type: none;
-    padding: 0;
-    min-height: 60vh;
-    max-height:70vh;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    background-color: #f7f7f7;
-    margin-top: 5px;
-  }
-  
-  .connected-sortable li {
-    padding: 5px 10px;
-    background-color: white;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    margin: 2px 0;
-    cursor: grab;
-  }
-  
-  .connected-sortable li:active {
-    cursor:grabbing;
-    opacity:50%;
-  }
-  
-  @media (max-width: 768px) {
-      body {
-          font-size:xx-small;
-          display:block;
-      }
+header img {
+  max-width: 100%;
+  height: auto;
+}
 
-      .category {
-          width: 100%;
-          padding: 3px; /* Reduced padding for smaller screens */
-      }
-  
-      .connected-sortable {
-          max-height: 20vh;
-      }
-  
-      .connected-sortable li {
-          padding: 3px 6px;
-      }
-  }
-  .counter {
-    font-size: smaller;
-    font-weight: normal;
-    color: #2d3034;
-  }
+/* Style for the red button */
+.material-button {
+  font-family: "Lato";
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+  letter-spacing: 0.04em;
+  text-align: center;
+  background-color: #D34037; /* Red background color */
+  color: white; /* Text color (white) */
+  border: none;
+  border-radius: 4px;
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.material-button:hover {
+  background: #F3513E;
+}
+
+#app {
+  display: flex;
+  gap: 2vw;
+  justify-content: center;
+  padding: 1vh;
+}
+
+.category {
+  border-radius: 5px;
+  padding: 10px;
+  width: 100%;
+  height: 80vh;
+  overflow: auto;
+  background-color: #f2f2f2;
+  text-align: center;
+}
+
+.category .sortable-list {
+  overflow: auto;
+}
+
+.category:nth-child(2n) {
+  background-color: #f7f7f7;
+}
+
+#unassigned {
+  background-color: #f2f2f2;
+}
+
+#seeds {
+  background-color: #64b5f6;
+}
+
+#forage {
+  background-color: #81c784;
+}
+
+#crafting {
+  background-color: #ffb74d;
+}
+
+#minerals {
+  background-color: #90a4ae;
+}
+
+#monster {
+  background-color: #ff8a65;
+}
+
+#special {
+  background-color: #ba68c8;
+}
+
+.connected-sortable {
+  list-style-type: none;
+  padding: 0;
+  min-height: 60vh;
+  max-height: 70vh;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #f7f7f7;
+  margin-top: 5px;
+}
+
+.connected-sortable li {
+  padding: 5px 10px;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin: 2px 0;
+  cursor: grab;
+}
+
+.connected-sortable li:active {
+  cursor: grabbing;
+  opacity: 50%;
+}
+
+@media (max-width: 768px) {
   body {
-    user-select: none;
+      font-size: xx-small;
+      display: block;
   }
 
-  #paste-input {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+  .category {
+      width: 100%;
+      padding: 3px; /* Reduced padding for smaller screens */
   }
-  
-  #paste-button {
-    background-color: #007bff;
-    color: #ffffff;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
+
+  .connected-sortable {
+      max-height: 20vh;
   }
-  
+
+  .connected-sortable li {
+      padding: 3px 6px;
+  }
+}
+
+.counter {
+  font-size: smaller;
+  font-weight: normal;
+  color: #2d3034;
+}
+
+body {
+  user-select: none;
+}
+
+#paste-input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+#paste-button {
+  background-color: #007bff;
+  color: #ffffff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Style for the header container */
+.header-content {
+  position: relative;
+}
+
+/* Style for the button container overlay */
+#buttonbar {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@media (max-width: 768px) {
+  .material-button {
+      font-size: xx-small; /* Decrease the font size */
+      padding: 3px 6px; /* Adjust padding for smaller buttons */
+  }
+}

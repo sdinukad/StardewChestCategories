@@ -137,6 +137,7 @@ const items = [
       itemList.forEach(item => {
         categoryElement.find(".sortable-list").append(`<li>${item}</li>`);
       });
+      saveListDataToLocalStorage();
     });
 
     $(".category").each(function(index, category) {

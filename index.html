@@ -4,14 +4,35 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inconsolata">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato">
   <title>Drag and Drop List</title>
 </head>
 <body>
-  <div id="buttonbar">
+  <header>
+    <div class="header-content">
+        <img src="https://media.forgecdn.net/game-covers/669_8ab534f1-cab5-4d0e-baa9-37d20f9ba8b5.webp" alt="Banner Image">
+        <div id="buttonbar">
+            <button id="download-button" class="material-button">Download data as text file</button>
+            <button id="reset-button" class="material-button">Reset Items</button>
+        </div>
+        <div class="popup">
+          <div class="popup-content">
+            <details>
+              <summary style="color: white">Paste and Arrange Items</summary>
+              <textarea id="paste-textarea" placeholder="Paste your downloaded data here"></textarea>
+              
+              <button id="paste-button">Paste & Arrange</button>
+          </details>
+          </div>
+        </div>
+    </div>
+</header>
+
+
+ <!-- <div id="buttonbar">
     <button id="download-button" class="material-button">Download data as text file</button>
-    <button id="reset-button" class="material-button">Reset Items</button> <!-- Add reset button -->
-  </div>
+    <button id="reset-button" class="material-button">Reset Items</button> --><!-- Add reset button -->
+   <!--</div>-->
     <div id="app">
     <!-- Categories -->
     <div class="category" id="unassigned">
@@ -49,14 +70,7 @@
       <ul class="sortable-list connected-sortable"></ul>
     </div>
   </div>
-  <div class="popup">
-  <div class="popup-content">
-    <h2>Paste and Arrange Items</h2>
-    <textarea id="paste-textarea" placeholder="Paste your downloaded data here"></textarea>
-    <br>
-    <button id="paste-button">Paste & Arrange</button>
-  </div>
-</div>
+  
   
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
